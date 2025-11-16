@@ -89,8 +89,12 @@
           #m.author #if m.institute != none {
             [\- #m.institute]
           }],
-        align(right)[
-          #toolbox.slide-number/#toolbox.last-slide-number],
+        if m.footer-hide == false {
+          align(right)[
+            #toolbox.slide-number#if m.footer-show-final-number == true {
+              [/#toolbox.last-slide-number]
+            }]
+        },
       )
     }
   }
@@ -107,6 +111,8 @@
   author: none,
   institute: none,
   date: none,
+  footer-hide: false,
+  footer-show-final-number: true,
   color-primary: primary-color,
   color-accent: accent-color,
   body,
@@ -118,6 +124,8 @@
     author: author,
     institute: institute,
     date: date,
+    footer-hide: footer-hide,
+    footer-show-final-number: footer-show-final-number,
   ))
 
   set text(
