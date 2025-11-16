@@ -52,8 +52,13 @@
   - Content is centered vertically
 ]
 
-#slide-centered("Content is centered")[
+#slide-centered("Content is centered", hide-footer: true)[
   #text(size: 24pt)[Make a nice statement]
+
+  #context {
+    text(fill: text.fill.lighten(50%))[The predefined layouts have the argument
+      `hide-footer` to not show the footer on specific slides.]
+  }
 ]
 
 #slide-split-2(
