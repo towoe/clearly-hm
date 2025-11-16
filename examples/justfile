@@ -1,0 +1,26 @@
+create-feature-preview: extract-images combine-images resize-image remove-tmp
+
+extract-images:
+    typst compile \
+      --format=png \
+      --pages '1-4' \
+      --ppi 250 feature-overview.typ \
+      --root .. \
+      'features_{p}.png'
+
+combine-images:
+    magick montage \
+      features_1.png features_2.png features_3.png features_4.png \
+      -tile 2x2 \
+      -geometry +3+3 \
+      -background black \
+      tmp.png
+
+resize-image:
+    magick \
+      tmp.png \
+      -resize 1080x \
+      features.png
+
+remove-tmp:
+    rm tmp.png features_1.png features_2.png features_3.png features_4.png

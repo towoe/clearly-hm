@@ -9,3 +9,10 @@ presentations. It has also not yet been submitted as a package to
 started. Feedback is welcome!*
 
 ![Title page](thumbnail.png)
+
+## Example
+
+Some features of the theme can be seen in the example
+[feature-overview](./examples/feature-overview.pdf).
+
+![Preview features](./examples/features.png)
