@@ -1,0 +1,78 @@
+#import "@preview/polylux:0.4.0": *
+#import "../lib.typ" as hm: *
+
+// Set theme and metatdata
+#show: hm.setup.with(
+  title: "Project Typst HM Presentation Theme",
+  subtitle: "Getting Started with Typst's Polylux",
+  author: "Tobias Wölfel",
+  institute: "Hochschule München",
+  date: datetime.today().display(),
+  footer-hide: false,
+  footer-show-final-number: true,
+)
+
+// Create title slide
+// Content is retrived from metadata
+#title-slide()
+
+// Table of contents slide
+// Depends on registered sections, see `#new-section()` below
+#slide-toc()
+
+// Start a new section, name is registered and shown in table of contents
+// This is creating a slide with the name and a progress bar
+// Options: don't show slide, see example below
+#new-section("Motivation")
+
+#slide[
+  = Motivation
+  - Typst is great
+  - Polylux for creating presentations
+  - HM theme, because logos and colors are nice
+
+  #linebreak()
+  - This slide is using the standard `#slide` command
+]
+
+// Start a new section without displaying a slide
+#new-section("Project Status", show-slide: false)
+
+#slide[
+  #heading(level: 1)[Project Status]
+  - Early stages
+  - Title page and footer with HM logos
+  - Custom layouts and section slides
+]
+
+// New section with table of contents entry
+#new-section-orientation("Layouts")
+
+#slide-vertical("Content vertical aligned")[
+  - Content is centered vertically
+]
+
+#slide-centered("Content is centered")[
+  #text(size: 24pt)[Make a nice statement]
+]
+
+#slide-split-2(
+  "Split page into to columns",
+  [
+    - Default content starts at the top
+  ],
+  align(horizon)[- can use `align` to center it],
+)
+
+#slide-split-1-2(
+  "Uneven split",
+  [
+    - Some short statements
+    - Typst is powerful
+  ],
+  [
+    - Here we need more space for longer explainations
+    - When creating documents with Typst, the content is much more in focus
+      compared to LaTeX.
+  ],
+)
