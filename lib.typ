@@ -263,14 +263,18 @@
   )
 })
 
-#let new-section(name) = slide({
-  set page(header: none, footer: none)
-  show: pad.with(x: 10%, y: 25%)
-  set text(size: 22pt, weight: "bold")
-  name
+#let new-section(name, show-slide: true) = {
   toolbox.register-section(name)
-  page-progress
-})
+  if show-slide == true {
+    slide({
+      set page(header: none, footer: none)
+      show: pad.with(x: 10%, y: 25%)
+      set text(size: 22pt, weight: "bold")
+      name
+      page-progress
+    })
+  }
+}
 
 #let toc = toolbox.all-sections((sections, _cur) => {
   list(..sections)
