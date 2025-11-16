@@ -159,9 +159,9 @@
   // List styling
   set list(
     marker: (
-      text(fill: color-accent, size: 16pt, [▶]),
-      text(fill: color-accent.darken(20%), [▶]),
-      text(fill: color-accent.darken(40%), [▶]),
+      text(fill: color-accent, top-edge: "ascender", [▶]),
+      text(fill: color-accent.darken(20%), top-edge: "ascender", [▶]),
+      text(fill: color-accent.darken(40%), top-edge: "ascender", [▶]),
     ),
     indent: 0.25em,
   )
