@@ -167,9 +167,9 @@
 // BMFTR Note
 // ============================================
 
-#let hm-bmftr-note(language: "en") = {
+#let hm-bmftr-note(language: "en", dx: 50pt, dy: 50pt) = {
   if language == "de" {
-    place(bottom + right, dx: 50pt, dy: 50pt)[
+    place(bottom + right, dx: dx, dy: dy)[
       #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Gefördert durch]], box(
         width: 6cm,
       )[
@@ -177,7 +177,7 @@
       ])
     ]
   } else if language == "en" {
-    place(bottom + right, dx: 50pt, dy: 50pt)[
+    place(bottom + right, dx: dx, dy: dy)[
       #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Funded by]], box(
         width: 6cm,
       )[
