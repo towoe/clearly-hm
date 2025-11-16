@@ -291,7 +291,7 @@
 #let slide-toc(title: "Content") = slide[
   #set page(footer: none)
   #heading[#title]
-  #text(size: 22pt, weight: "regular")[
+  #text(size: 22pt, weight: "light")[
     #grid(
       columns: (1fr, 3fr, 2fr),
       rows: (5fr, 1fr),
