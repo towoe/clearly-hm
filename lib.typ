@@ -284,6 +284,35 @@
   }
 }
 
+#let new-section-orientation(name, highlight-color: none) = slide({
+  set page(header: none, footer: none)
+  show: pad.with(x: 10%, y: 5%)
+  set text(size: 22pt)
+
+  toolbox.register-section(name)
+
+  toolbox.all-sections((sections, current) => {
+    for section in sections {
+      if section == current {
+        text(
+          weight: "bold",
+          fill: if highlight-color != none { highlight-color } else {
+            text.fill
+          },
+          top-edge: "ascender",
+        )[#section]
+      } else {
+        text(weight: "light", fill: text.fill.lighten(50%))[#section]
+      }
+      linebreak()
+    }
+  })
+
+  align(bottom)[
+    #page-progress
+  ]
+})
+
 #let toc = toolbox.all-sections((sections, _cur) => {
   list(..sections)
 })
