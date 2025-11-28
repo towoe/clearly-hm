@@ -147,7 +147,7 @@
   ))
 
   set text(
-    font: ("Helvetica Neue", "Roboto"),
+    font: ("Helvetica Neue", "libertinus serif"),
     weight: "light",
     size: 16pt,
     fill: text-color,
