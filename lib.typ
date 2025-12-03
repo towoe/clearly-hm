@@ -246,6 +246,7 @@
 #let slide-split-2(title, left, right, hide-footer: false) = slide[
   #set page(footer: footer-check(hide: hide-footer))
   #heading[#title]
+  #v(1em)
   #grid(
     columns: (1fr, 1fr),
     rows: 1fr,
@@ -269,6 +270,7 @@
   )
   #set page(footer: footer-check(hide: hide-footer))
   #heading[#title]
+  #v(1em)
   #grid(
     columns: (1fr, 2fr),
     rows: 1fr,
