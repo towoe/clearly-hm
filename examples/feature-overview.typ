@@ -76,8 +76,20 @@
     - Typst is powerful
   ],
   [
-    - Here we need more space for longer explainations
+    - Here we need more space for longer explanations
     - When creating documents with Typst, the content is much more in focus
       compared to LaTeX.
   ],
 )
+
+#new-section-orientation("Features")
+
+#title-slide(
+  title: "Title slide with overwritten values",
+  subtitle: "Adding the BMFTR logo",
+  uppercase-title: false,
+  author: none,
+  institute: none,
+  date: none,
+)
+#hm-bmftr-note(dx: 0pt, dy: 0pt)
