@@ -10,6 +10,7 @@
   date: datetime.today().display(),
   footer-hide: false,
   footer-show-final-number: true,
+  font: "Nimbus Sans",
 )
 
 // Create title slide

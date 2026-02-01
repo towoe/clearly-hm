@@ -17,7 +17,13 @@ Some features of the theme can be seen in the example
 
 ![Preview features](./examples/features.png)
 
-## Layouts
+## Usage
+
+### Dependencies
+
+The main font is _Helvetica Neue_. The fallback font is _Nimbus Sans_.
+
+### Layouts
 
 The HM theme comes with a few predefined layouts:
 - `slide-vertical`: Content positions left and vertically in the middle

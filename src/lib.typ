@@ -133,6 +133,8 @@
   footer-show-final-number: true,
   color-primary: primary-color,
   color-accent: accent-color,
+  font: ("Helvetica Neue", "Nimbus Sans"),
+  size-base: 16pt,
   body,
 ) = {
   // Store metadata in state
@@ -147,9 +149,9 @@
   ))
 
   set text(
-    font: ("Helvetica Neue", "libertinus serif"),
+    font: font,
     weight: "light",
-    size: 16pt,
+    size: size-base,
     fill: text-color,
   )
 
