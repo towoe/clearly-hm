@@ -1,14 +1,14 @@
 [package]
 name = "hm-polylux"
 version = "0.1.0"
-entrypoint = "lib.typ"
+entrypoint = "hm-polylux.typ"
 authors = ["Tobias Wölfel"]
 license = "MIT"
 description = "Unofficial Polylux theme for HM Hochschule München University of Applied Sciences."
 repository = "https://github.com/towoe/hm-polylux"
 keywords = ["polylux", "theme", "hm", "slides", "presentation"]
 categories = ["presentation"]
-exclude = ["examples/*"]
+exclude = ["examples/"]
 
 [template]
 path = "template"

@@ -41,7 +41,7 @@
     let m = meta-state.get()
 
     place(top + right)[
-      #image("img/HM_Logo_Text_red.pdf", height: 2.5cm)
+      #image("/img/HM_Logo_Text_red.pdf", height: 2.5cm)
     ]
 
     place(left + horizon, dx: 25%, dy: 10%, {
@@ -99,7 +99,7 @@
         columns: (1fr, 6fr, 1fr),
 
         align(left)[
-          #image("img/HM_Logo.svg", height: 22pt)
+          #image("/img/HM_Logo.svg", height: 22pt)
         ],
         [#text(weight: "bold")[#m.title #if m.subtitle != none {
               [\- #m.subtitle]
@@ -199,7 +199,7 @@
       #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Gefördert durch]], box(
         width: 6cm,
       )[
-        #image("img/BMFTR_Logo_DE.svg", width: 6cm)
+        #image("/img/BMFTR_Logo_DE.svg", width: 6cm)
       ])
     ]
   } else if language == "en" {
@@ -207,7 +207,7 @@
       #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Funded by]], box(
         width: 6cm,
       )[
-        #image("img/BMFTR_Logo_EN.svg", width: 6cm)
+        #image("/img/BMFTR_Logo_EN.svg", width: 6cm)
       ])
     ]
   }
