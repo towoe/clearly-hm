@@ -92,5 +92,5 @@
   author: none,
   institute: none,
   date: none,
+  content-overlay: hm-bmftr-note(dx: 0pt, dy: 0pt),
 )
-#hm-bmftr-note(dx: 0pt, dy: 0pt)

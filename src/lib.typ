@@ -62,6 +62,7 @@
   date: [],
   uppercase-title: true,
   show-footer: false,
+  content-overlay: none,
 ) = slide[
   #set align(center + horizon)
   #set text(fill: text-color)
@@ -117,6 +118,9 @@
         #linebreak()
         #override-or-meta(date, m.date)]
     })
+  }
+  #if content-overlay != none {
+    content-overlay
   }
 ]
 
@@ -221,23 +225,45 @@
 // Slide Layouts
 // ============================================
 
-#let slide-vertical(title, body, show-footer: true) = slide[
+#let slide-vertical(
+  title,
+  body,
+  show-footer: true,
+  content-overlay: none,
+) = slide[
   #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #align(horizon)[
     #body
   ]
+  #if content-overlay != none {
+    content-overlay
+  }
 ]
 
-#let slide-centered(title, body, show-footer: true) = slide[
+#let slide-centered(
+  title,
+  body,
+  show-footer: true,
+  content-overlay: none,
+) = slide[
   #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #align(center + horizon)[
     #body
   ]
+  #if content-overlay != none {
+    content-overlay
+  }
 ]
 
-#let slide-split-2(title, left, right, show-footer: true) = slide[
+#let slide-split-2(
+  title,
+  left,
+  right,
+  show-footer: true,
+  content-overlay: none,
+) = slide[
   #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #v(1em)
@@ -246,6 +272,9 @@
     rows: 1fr,
     left, right,
   )
+  #if content-overlay != none {
+    content-overlay
+  }
 ]
 
 #let slide-split-1-2(
@@ -254,6 +283,7 @@
   right-content,
   bg-color: white,
   show-footer: true,
+  content-overlay: none,
 ) = slide[
   #set page(
     background: place(left + top, box(
@@ -270,6 +300,9 @@
     rows: 1fr,
     left-content, right-content,
   )
+  #if content-overlay != none {
+    content-overlay
+  }
 ]
 
 // ============================================
