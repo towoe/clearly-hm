@@ -8,9 +8,9 @@
   author: "Tobias Wölfel",
   institute: "Hochschule München",
   date: datetime.today().display(),
-  footer-hide: false,
-  footer-show-final-number: true,
   font: "Nimbus Sans",
+  show-footer: false,
+  show-footer-num-pages: true,
 )
 
 // Create title slide
@@ -53,7 +53,7 @@
   - Content is centered vertically
 ]
 
-#slide-centered("Content is centered", hide-footer: true)[
+#slide-centered("Content is centered", show-footer: false)[
   #text(size: 24pt)[Make a nice statement]
 
   #context {

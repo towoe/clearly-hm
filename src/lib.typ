@@ -23,6 +23,34 @@
 #let meta-state = state("meta", (:))
 
 // ============================================
+// Footer
+// ============================================
+
+#let hm-footer() = {
+  set text(size: 10pt)
+  context {
+    let m = meta-state.get()
+    grid(
+      columns: (1fr, 6fr, 1fr),
+
+      align(left)[
+        #image("/img/HM_Logo.svg", height: 22pt)
+      ],
+      [#text(weight: "bold")[#m.title #if m.subtitle != none {
+            [\- #m.subtitle]
+          }] #linebreak()
+        #m.author #if m.institute != none {
+          [\- #m.institute]
+        }],
+      align(right)[
+        #toolbox.slide-number#if m.show-footer-num-pages == true {
+          [/#toolbox.last-slide-number]
+        }],
+    )
+  }
+}
+
+// ============================================
 // Title slide
 // ============================================
 
@@ -33,9 +61,11 @@
   institute: [],
   date: [],
   uppercase-title: true,
+  show-footer: false,
 ) = slide[
   #set align(center + horizon)
   #set text(fill: text-color)
+  #set page(footer: if show-footer { hm-footer() })
 
   #context {
     let m = meta-state.get()
@@ -49,6 +79,7 @@
         meta-value
       } else { value }
 
+      // Title
       text(size: 22pt, weight: "bold", fill: black)[
         #if uppercase-title { upper(override-or-meta(title, m.title)) } else {
           override-or-meta(title, m.title)
@@ -57,6 +88,7 @@
 
       v(0.5em)
 
+      // Subtitle
       text(
         size: 18pt,
         fill: black,
@@ -67,6 +99,7 @@
         #linebreak()
       ]
 
+      // Author
       text(
         size: 16pt,
         weight: "light",
@@ -79,44 +112,13 @@
         #linebreak()
         #override-or-meta(institute, m.institute)]
 
+      // Date
       text(size: 14pt, weight: "light")[
         #linebreak()
         #override-or-meta(date, m.date)]
     })
   }
 ]
-
-// ============================================
-// Footer
-// ============================================
-
-#let hm-footer() = {
-  set text(size: 10pt)
-  context {
-    if here().page() > 1 {
-      let m = meta-state.get()
-      grid(
-        columns: (1fr, 6fr, 1fr),
-
-        align(left)[
-          #image("/img/HM_Logo.svg", height: 22pt)
-        ],
-        [#text(weight: "bold")[#m.title #if m.subtitle != none {
-              [\- #m.subtitle]
-            }] #linebreak()
-          #m.author #if m.institute != none {
-            [\- #m.institute]
-          }],
-        if m.footer-hide == false {
-          align(right)[
-            #toolbox.slide-number#if m.footer-show-final-number == true {
-              [/#toolbox.last-slide-number]
-            }]
-        },
-      )
-    }
-  }
-}
 
 // ============================================
 // Theme Setup
@@ -129,8 +131,8 @@
   author: none,
   institute: none,
   date: none,
-  footer-hide: false,
-  footer-show-final-number: true,
+  show-footer: true,
+  show-footer-num-pages: true,
   color-primary: primary-color,
   color-accent: accent-color,
   font: ("Helvetica Neue", "Nimbus Sans"),
@@ -144,8 +146,8 @@
     author: author,
     institute: institute,
     date: date,
-    footer-hide: footer-hide,
-    footer-show-final-number: footer-show-final-number,
+    show-footer: show-footer,
+    show-footer-num-pages: show-footer-num-pages,
   ))
 
   set text(
@@ -160,7 +162,7 @@
     paper: "presentation-" + aspect-ratio,
     fill: white,
     margin: (x: 3em, top: 3em, bottom: 4em),
-    footer: hm-footer(),
+    footer: if show-footer { hm-footer() },
   )
 
   // Heading styles
@@ -216,37 +218,27 @@
 }
 
 // ============================================
-// Helper Components
-// ===========================================
-
-#let footer-check(hide: true) = {
-  if hide == false {
-    hm-footer()
-  }
-}
-
-// ============================================
 // Slide Layouts
 // ============================================
 
-#let slide-vertical(title, body, hide-footer: false) = slide[
-  #set page(footer: footer-check(hide: hide-footer))
+#let slide-vertical(title, body, show-footer: true) = slide[
+  #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #align(horizon)[
     #body
   ]
 ]
 
-#let slide-centered(title, body, hide-footer: false) = slide[
-  #set page(footer: footer-check(hide: hide-footer))
+#let slide-centered(title, body, show-footer: true) = slide[
+  #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #align(center + horizon)[
     #body
   ]
 ]
 
-#let slide-split-2(title, left, right, hide-footer: false) = slide[
-  #set page(footer: footer-check(hide: hide-footer))
+#let slide-split-2(title, left, right, show-footer: true) = slide[
+  #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #v(1em)
   #grid(
@@ -261,7 +253,7 @@
   left-content,
   right-content,
   bg-color: white,
-  hide-footer: false,
+  show-footer: true,
 ) = slide[
   #set page(
     background: place(left + top, box(
@@ -270,7 +262,7 @@
       fill: bg-color,
     )),
   )
-  #set page(footer: footer-check(hide: hide-footer))
+  #set page(footer: if show-footer { hm-footer() })
   #heading[#title]
   #v(1em)
   #grid(
