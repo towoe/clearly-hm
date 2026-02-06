@@ -202,23 +202,23 @@
 // ============================================
 
 #let hm-bmftr-note(language: "en", dx: 50pt, dy: 50pt) = {
-  if language == "de" {
-    place(bottom + right, dx: dx, dy: dy)[
-      #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Gefördert durch]], box(
-        width: 6cm,
-      )[
-        #image("/img/BMFTR_Logo_DE.svg", width: 6cm)
-      ])
-    ]
-  } else if language == "en" {
-    place(bottom + right, dx: dx, dy: dy)[
-      #stack(spacing: 0pt, align(left)[#text(size: 8pt)[Funded by]], box(
-        width: 6cm,
-      )[
-        #image("/img/BMFTR_Logo_EN.svg", width: 6cm)
-      ])
-    ]
+  let note = if language == "de" { [Gefördert durch] } else if (
+    language == "en"
+  ) {
+    [Funded by]
   }
+  let img-path = if language == "de" { "/img/BMFTR_Logo_DE.svg" } else if (
+    language == "en"
+  ) {
+    "/img/BMFTR_Logo_EN.svg"
+  }
+  place(bottom + right, dx: dx, dy: dy)[
+    #stack(spacing: 0pt, align(left)[#text(size: 8pt)[#note]], box(
+      width: 6cm,
+    )[
+      #image(img-path, width: 6cm)
+    ])
+  ]
 }
 
 // ============================================
