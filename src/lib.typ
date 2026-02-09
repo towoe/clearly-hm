@@ -201,7 +201,7 @@
 // BMFTR Note
 // ============================================
 
-#let hm-bmftr-note(language: "en", dx: 50pt, dy: 50pt) = {
+#let bmftr-note(language: "en", dx: 50pt, dy: 50pt) = {
   let note = if language == "de" { [Gefördert durch] } else if (
     language == "en"
   ) {
