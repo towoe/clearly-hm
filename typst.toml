@@ -2,11 +2,11 @@
 name = "hm-polylux"
 version = "0.1.0"
 entrypoint = "hm-polylux.typ"
-authors = ["Tobias Wölfel"]
+authors = ["Tobias Wölfel <@towoe>"]
 license = "MIT"
 description = "Unofficial Polylux theme for HM Hochschule München University of Applied Sciences."
 repository = "https://github.com/towoe/hm-polylux"
-keywords = ["polylux", "theme", "hm", "slides", "presentation"]
+keywords = ["polylux", "theme", "hm", "slides", "presentation", "München", "Munich", "Hochschule"]
 categories = ["presentation"]
 exclude = ["examples/"]
 
