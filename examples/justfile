@@ -1,4 +1,4 @@
-create-feature-preview: extract-images combine-images resize-image remove-tmp
+create-feature-preview: extract-images combine-images resize-image compress-image remove-tmp
 
 extract-images:
     typst compile \
@@ -21,6 +21,9 @@ resize-image:
       tmp.png \
       -resize 1080x \
       features.png
+
+compress-image:
+    oxipng -o 4 --strip safe --alpha features.png
 
 remove-tmp:
     rm tmp.png features_1.png features_2.png features_3.png features_4.png
