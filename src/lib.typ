@@ -259,8 +259,8 @@
 
 #let slide-split-2(
   title,
-  left,
-  right,
+  content-left,
+  content-right,
   show-footer: true,
   content-overlay: none,
 ) = slide[
@@ -270,7 +270,7 @@
   #grid(
     columns: (1fr, 1fr),
     rows: 1fr,
-    left, right,
+    content-left, content-right,
   )
   #if content-overlay != none {
     content-overlay
@@ -279,8 +279,8 @@
 
 #let slide-split-1-2(
   title,
-  left-content,
-  right-content,
+  content-left,
+  content-right,
   bg-color: white,
   show-footer: true,
   content-overlay: none,
@@ -298,7 +298,7 @@
   #grid(
     columns: (1fr, 2fr),
     rows: 1fr,
-    left-content, right-content,
+    content-left, content-right,
   )
   #if content-overlay != none {
     content-overlay
