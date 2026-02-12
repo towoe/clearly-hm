@@ -1,5 +1,5 @@
 #import "@preview/polylux:0.4.0": *
-#import "@preview/hm-polylux:0.1.0" as hm: *
+#import "@preview/clearly-hm:0.1.0" as hm: *
 
 // Set theme and metatdata
 #show: hm.setup.with(

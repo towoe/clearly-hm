@@ -14,12 +14,12 @@ Some features of the theme can be seen in the example
 
 ## Usage
 
-To get started use either `typst init @preview/hm-polylux` or add the following
+To get started use either `typst init @preview/clearly-hm` or add the following
 to the document.
 
 ```typst
 #import "@preview/polylux:0.4.0": *
-#import "@preview/hm-polylux:0.1.0" as hm: *
+#import "@preview/clearly-hm:0.1.0" as hm: *
 
 #show: hm.setup.with(
   title: "Project Typst HM Presentation Theme",
