@@ -44,8 +44,8 @@
 #slide[
   #heading(level: 1)[Project Status]
   - Early stages
-  - Title page and footer with HM logos
-  - Custom layouts and section slides
+    - Title page and footer with HM logos
+      - Custom layouts and section slides
 ]
 
 // New section with table of contents entry
