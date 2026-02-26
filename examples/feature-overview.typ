@@ -11,6 +11,8 @@
   font: "Nimbus Sans",
   show-footer: false,
   show-footer-num-pages: true,
+  color-primary: hm.colors.red,
+  color-accent: hm.colors.red,
 )
 
 // Create title slide

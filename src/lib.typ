@@ -2,21 +2,23 @@
 // Presentation theme for Hochschule München
 #import "@preview/polylux:0.4.0": *
 
+// ============================================
 // HM Brand Colors
-#let hm-red = rgb(252, 85, 85)
-#let hm-green = rgb(74, 211, 134)
-#let hm-yellow = rgb(255, 255, 0)
-#let hm-blue = rgb(62, 70, 217)
-#let hm-dark-gray = rgb(110, 110, 110)
-#let hm-light-gray = rgb(198, 198, 198)
-#let hm-accent1 = rgb(87, 66, 63)
-#let hm-accent2 = rgb(191, 165, 163)
-#let hm-accent3 = rgb(110, 158, 0)
-#let hm-accent4 = rgb(55, 106, 0)
+// ============================================
 
-// Primary color scheme (customizable)
-#let primary-color = hm-red
-#let accent-color = hm-red
+#let colors = (
+  red: rgb(252, 85, 85),
+  green: rgb(74, 211, 134),
+  yellow: rgb(255, 255, 0),
+  blue: rgb(62, 70, 217),
+  dark-gray: rgb(110, 110, 110),
+  light-gray: rgb(198, 198, 198),
+  accent1: rgb(87, 66, 63),
+  accent2: rgb(191, 165, 163),
+  accent3: rgb(110, 158, 0),
+  accent4: rgb(55, 106, 0),
+)
+
 #let text-color = black
 
 // Metadata for access across slides
@@ -137,8 +139,8 @@
   date: none,
   show-footer: true,
   show-footer-num-pages: true,
-  color-primary: primary-color,
-  color-accent: accent-color,
+  color-primary: colors.red,
+  color-accent: colors.red,
   font: ("Helvetica Neue", "Nimbus Sans"),
   size-base: 16pt,
   body,
@@ -152,6 +154,8 @@
     date: date,
     show-footer: show-footer,
     show-footer-num-pages: show-footer-num-pages,
+    color-primary: color-primary,
+    color-accent: color-accent,
   ))
 
   set text(
@@ -178,7 +182,7 @@
 
   show heading.where(level: 2): set text(
     size: 22pt,
-    fill: hm-dark-gray,
+    fill: colors.dark-gray,
     weight: "bold",
   )
 
@@ -311,10 +315,11 @@
 
 #let page-progress = toolbox.progress-ratio(ratio => {
   set grid.cell(inset: (y: .05em))
+  let m = meta-state.get()
   grid(
     columns: (ratio * 100%, 1fr),
-    grid.cell(fill: primary-color)[],
-    grid.cell(fill: primary-color.luma().lighten(50%))[],
+    grid.cell(fill: m.color-primary)[],
+    grid.cell(fill: m.color-primary.luma().lighten(50%))[],
   )
 })
 

@@ -54,21 +54,24 @@ The `setup` function initializes the HM Polylux presentation theme and applies i
 | `date` | content | `none` | Presentation date |
 | `show-footer` | boolean | `true` | Display footer on slides |
 | `show-footer-num-pages` | boolean | `true` | Show total page number in footer |
-| `color-primary` | color | `hm-red` | Primary accent color |
-| `color-accent` | color | `hm-red` | Accent color for lists/elements |
+| `color-primary` | color | `colors.red` | Primary accent color |
+| `color-accent` | color | `colors.red` | Accent color for lists/elements |
 | `font` | array | `("Helvetica Neue", "Nimbus Sans")` | Font family (primary, fallback) |
 | `size-base` | length | `16pt` | Base text size |
 | `body` | content | — | Document content |
 
 #### Example
+
 ```typst
+#import "@preview/clearly-hm:0.1.0" as hm: *
+
 #show: hm.setup.with(
   title: "Compiling",
   subtitle: "My code's compiling",
   author: "Cueball",
   institute: "xkcd 303",
   date: datetime.today().display(),
-  color-primary: hm-blue,
+  color-primary: hm.colors.blue,
 )
 ```
 
@@ -116,14 +119,15 @@ The `title-slide` function accepts the same arguments as `setup` (`title`,
 
 ### Predefined Colors
 
-The theme provides HM brand colors that can be used for customization:
+The theme provides HM brand colors that can be used for customization and are
+exposed through the dictionary `colors`:
 
-- `hm-red` (default primary/accent)
-- `hm-blue`
-- `hm-green`
-- `hm-yellow`
-- `hm-dark-gray`
-- `hm-light-gray`
-- `hm-accent1` through `hm-accent4`
+- `red` (default primary/accent)
+- `blue`
+- `green`
+- `yellow`
+- `dark-gray`
+- `light-gray`
+- `accent1` through `accent4`
 
 Use them with `color-primary` or `color-accent` in the setup function.
