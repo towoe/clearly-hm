@@ -19,7 +19,7 @@ to the document.
 
 ```typst
 #import "@preview/polylux:0.4.0": *
-#import "@preview/clearly-hm:0.1.0" as hm: *
+#import "@preview/clearly-hm:0.1.1" as hm: *
 
 #show: hm.setup.with(
   title: "Project Typst HM Presentation Theme",
@@ -63,7 +63,7 @@ The `setup` function initializes the HM Polylux presentation theme and applies i
 #### Example
 
 ```typst
-#import "@preview/clearly-hm:0.1.0" as hm: *
+#import "@preview/clearly-hm:0.1.1" as hm: *
 
 #show: hm.setup.with(
   title: "Compiling",
