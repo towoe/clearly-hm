@@ -80,43 +80,45 @@
         meta-value
       } else { value }
 
-      // Title
-      text(size: 22pt, weight: "bold", fill: black)[
-        #if uppercase-title { upper(override-or-meta(title, m.title)) } else {
-          override-or-meta(title, m.title)
-        }
-      ]
+      box(width: 75%, {
+        // Title
+        text(size: 22pt, weight: "bold", fill: black)[
+          #if uppercase-title { upper(override-or-meta(title, m.title)) } else {
+            override-or-meta(title, m.title)
+          }
+        ]
 
-      v(0.5em)
+        v(0.5em)
+        // Subtitle
+        text(
+          size: 18pt,
+          fill: black,
+          style: "italic",
+          weight: "light",
+        )[
+          #override-or-meta(subtitle, m.subtitle)
+          #linebreak()
+        ]
 
-      // Subtitle
-      text(
-        size: 18pt,
-        fill: black,
-        style: "italic",
-        weight: "light",
-      )[
-        #override-or-meta(subtitle, m.subtitle)
-        #linebreak()
-      ]
 
-      // Author
-      text(
-        size: 16pt,
-        weight: "light",
-        fill: black,
-      )[
-        #linebreak()
-        #override-or-meta(author, m.author)]
+        // Author
+        text(
+          size: 16pt,
+          weight: "light",
+          fill: black,
+        )[
+          #linebreak()
+          #override-or-meta(author, m.author)]
 
-      text(size: 16pt, weight: "light")[
-        #linebreak()
-        #override-or-meta(institute, m.institute)]
+        text(size: 16pt, weight: "light")[
+          #linebreak()
+          #override-or-meta(institute, m.institute)]
 
-      // Date
-      text(size: 14pt, weight: "light")[
-        #linebreak()
-        #override-or-meta(date, m.date)]
+        // Date
+        text(size: 14pt, weight: "light")[
+          #linebreak()
+          #override-or-meta(date, m.date)]
+      })
     })
   }
   #if content-overlay != none {
